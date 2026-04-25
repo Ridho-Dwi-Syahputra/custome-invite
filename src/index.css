@@ -1,0 +1,151 @@
+/* ========================================
+  GOOGLE FONTS
+  ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+@import "tailwindcss";
+
+/* ========================================
+   TAILWIND v4 THEME CONFIGURATION
+   ======================================== */
+@theme {
+  /* Purple palette from Lentera Karir */
+  --color-purple-50: #F3E8FF;
+  --color-purple-100: #E9D5FF;
+  --color-purple-200: #D8B4FE;
+  --color-purple-300: #C084FC;
+  --color-purple-400: #A855F7;
+  --color-purple-500: #8B5CF6;
+  --color-purple-600: #7C3AED;
+  --color-purple-700: #661FFF;  /* Lentera Karir Primary */
+  --color-purple-800: #5A2FD5;  /* Lentera Karir Dark */
+  --color-purple-900: #4C1D95;
+  --color-purple-950: #2E1065;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', 'Georgia', serif;
+
+  /* Custom animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-fade-in: fadeIn 0.8s ease-out forwards;
+  --animate-slide-up: slideUp 0.8s ease-out forwards;
+  --animate-scale-in: scaleIn 0.6s ease-out forwards;
+  --animate-particle: particle 15s linear infinite;
+  --animate-envelope-open: envelopeOpen 0.8s ease-out forwards;
+  --animate-letter-rise: letterRise 0.8s ease-out forwards;
+  --animate-spin-slow: spin 20s linear infinite;
+}
+
+/* ========================================
+   KEYFRAMES
+   ======================================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(102, 31, 255, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(102, 31, 255, 0.6); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes particle {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+}
+@keyframes envelopeOpen {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(180deg); }
+}
+@keyframes letterRise {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120%); }
+}
+@keyframes countdownPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ========================================
+   GLOBAL STYLES & I-BEAM FIX
+   ======================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  overflow-x: hidden;
+  background: #0F0520;
+}
+
+/* Only allow text selection in form inputs */
+input, textarea {
+  cursor: text;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1a0a2e;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #661FFF, #A855F7);
+  border-radius: 3px;
+}
+
+/* ========================================
+   GLASSMORPHISM UTILITY
+   ======================================== */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}

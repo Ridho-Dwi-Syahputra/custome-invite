@@ -459,6 +459,8 @@ export default function App() {
                 <div style={{ textAlign: 'center', marginBottom: 48 }}>
                   <p className="select-none" style={{ fontSize: 14, lineHeight: 1.85, color: 'rgba(255,255,255,0.7)', marginBottom: 24 }}>
                     Kehadiran dan support dari Abang/Kakak serta teman-teman semua bakal berarti banget buat aku. Ditunggu ya kedatangannya!
+
+                    BTW FREE ROTI O buat 5 orang pertama :b
                   </p>
                   <p className="font-serif select-none" style={{ fontSize: 18, fontWeight: 600, color: 'rgba(233,213,255,0.85)', fontStyle: 'italic', marginBottom: 32 }}>
                     Wassalamu'alaikum Warahmatullahi Wabarakatuh.

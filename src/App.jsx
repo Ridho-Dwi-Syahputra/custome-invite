@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 
 import logoMetro from './assets/logo-metro.png'
 import fotoRidho from './assets/foto-ridho.png'
+import backgroundMusic from './assets/dj-kicau-mania.mp3'
 
 const FIREBASE_DB_BASE_URL = import.meta.env.VITE_FIREBASE_DB_URL || ''
 const COMMENTS_DB_URL = FIREBASE_DB_BASE_URL ? `${FIREBASE_DB_BASE_URL.replace(/\/$/, '')}/comments.json` : ''
@@ -257,8 +258,22 @@ function Comments() {
 export default function App() {
   const [isOpen, setIsOpen] = useState(false)
   const [show, setShow] = useState(false)
+  const audioRef = useRef(null)
+  const [shouldPlayAudio, setShouldPlayAudio] = useState(false)
 
-  const open = () => { setIsOpen(true); setTimeout(() => setShow(true), 500) }
+  const open = () => {
+    setIsOpen(true)
+    setTimeout(() => setShow(true), 500)
+    setShouldPlayAudio(true)
+  }
+
+  useEffect(() => {
+    if (!shouldPlayAudio) return
+    const audio = audioRef.current
+    if (!audio) return
+    audio.currentTime = 0
+    audio.play().catch(() => {})
+  }, [shouldPlayAudio])
 
   // Shared style for the centered frame
   const frameStyle = {
@@ -272,6 +287,7 @@ export default function App() {
 
   return (
     <>
+      <audio ref={audioRef} src={backgroundMusic} preload="auto" />
       {!isOpen && <CoverPage onOpen={open} />}
 
       {isOpen && !show && (
